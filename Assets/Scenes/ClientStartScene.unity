@@ -364,6 +364,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 2ebd8db5cd2651d448991f892f8a2c70, type: 3}
   hotUpdateDllFIleNames:
   - HotUpdate.dll
+  versionInfoAddressableKey: VersionInfo
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0

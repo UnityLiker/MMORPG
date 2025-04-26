@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: Version
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets
+  m_GroupName: Version
   m_Data:
     m_SerializedData: []
   m_GUID: 5db468ff0278d26499bbc27346f51449
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 7f006825ac17a604390dccb007cf2fd9
+    m_Address: VersionInfo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 358c1a9dbeb3e2940a0a6580caa5a456, type: 2}
   m_SchemaSet:

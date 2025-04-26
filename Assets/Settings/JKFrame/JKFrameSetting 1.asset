@@ -32,10 +32,10 @@ MonoBehaviour:
       Data: true
     - Name: writeTime
       Entry: 5
-      Data: true
+      Data: false
     - Name: writeThreadID
       Entry: 5
-      Data: true
+      Data: false
     - Name: writeTrace
       Entry: 5
       Data: false
@@ -67,88 +67,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: UI_LocalizationExampleWindow
-    - Name: $v
-      Entry: 7
-      Data: 3|JKFrame.UIWindowData, JKFrame
-    - Name: isCache
-      Entry: 5
-      Data: false
-    - Name: assetPath
-      Entry: 1
-      Data: UI_LocalizationExampleWindow
-    - Name: layerNum
-      Entry: 3
-      Data: 1
-    - Name: instance
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: TestWindow0
-    - Name: $v
-      Entry: 7
-      Data: 4|JKFrame.UIWindowData, JKFrame
-    - Name: isCache
-      Entry: 5
-      Data: true
-    - Name: assetPath
-      Entry: 1
-      Data: TestWindow
-    - Name: layerNum
-      Entry: 3
       Data: 0
-    - Name: instance
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: TestWindow
-    - Name: $v
-      Entry: 7
-      Data: 5|JKFrame.UIWindowData, JKFrame
-    - Name: isCache
-      Entry: 5
-      Data: true
-    - Name: assetPath
-      Entry: 1
-      Data: TestWindow
-    - Name: layerNum
-      Entry: 3
-      Data: 1
-    - Name: instance
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 

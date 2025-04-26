@@ -12,6 +12,7 @@ public class HotUpdateSystem : MonoBehaviour
 {
     [SerializeField] private TextAsset[] aotDllAssets;
     [SerializeField] private string[] hotUpdateDllFIleNames;
+    [SerializeField] private string versionInfoAddressableKey;
     private Action<float> onPercentageForEachFile;
     private Action<bool> onOver;
 
@@ -39,6 +40,9 @@ public class HotUpdateSystem : MonoBehaviour
         else
         {
             JKLog.Log("检测目录更新成功");
+            //优先下载版本信息
+            TextAsset versionInfoTextAsset = GetVersionInfo();
+            JKLog.Log($"版本信息:{versionInfoTextAsset.text}");
 
             // 下载最新的目录
             if (checkForCatalogUpdateHandle.Result.Count > 0)
@@ -99,13 +103,13 @@ public class HotUpdateSystem : MonoBehaviour
             else JKLog.Log("无需更新");
         }
 
-        onOver?.Invoke(succeed);
         Addressables.Release(checkForCatalogUpdateHandle);
-        if (succeed)
+        if (succeed) 
         {
             LoadHotUpdateDll();
             LoadMetaForAOTAssemblies();
         }
+        onOver?.Invoke(succeed);
     }
 
     private void LoadHotUpdateDll()
@@ -126,5 +130,11 @@ public class HotUpdateSystem : MonoBehaviour
             LoadImageErrorCode errorCode = RuntimeApi.LoadMetadataForAOTAssembly(dllBytes, HomologousImageMode.SuperSet);
             JKLog.Log($"LoadMetaForAOTAssemblies: {aotDllAssets[i].name}, {errorCode}");
         }
+    }
+
+    private TextAsset GetVersionInfo()
+    {
+        Addressables.DownloadDependenciesAsync(versionInfoAddressableKey, true).WaitForCompletion();
+        return Addressables.LoadAssetAsync<TextAsset>(versionInfoAddressableKey).WaitForCompletion();
     }
 }
