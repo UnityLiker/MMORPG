@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 6ea052bb421aa8e4c8b2a9189a457a7b
   m_currentHash:
     serializedVersion: 2
-    Hash: fb2d0d239612ec95e4307570001b4678
+    Hash: 19b45682ce89ea8dc7810f95a6c83b60
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7e549c19ead20194182f2bbcf216c03b, type: 2}
   - {fileID: 11400000, guid: de1ea6598087e234d98e0b64091cf7d0, type: 2}
   - {fileID: 11400000, guid: 359a8ae60bdb0144399b270052f7a551, type: 2}
+  - {fileID: 11400000, guid: cae2bf807af78a8468996ed4f403d280, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -123,7 +124,7 @@ MonoBehaviour:
           m_Key: ContentRoot
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.Boolean
-          m_Data: True
+          m_Data: False
           m_Key: IsEnabled
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.String

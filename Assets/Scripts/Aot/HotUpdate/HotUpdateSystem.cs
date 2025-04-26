@@ -40,6 +40,7 @@ public class HotUpdateSystem : MonoBehaviour
         else
         {
             JKLog.Log("检测目录更新成功");
+
             //优先下载版本信息
             TextAsset versionInfoTextAsset = GetVersionInfo();
             JKLog.Log($"版本信息:{versionInfoTextAsset.text}");
@@ -67,6 +68,7 @@ public class HotUpdateSystem : MonoBehaviour
                         else
                         {
                             JKLog.Log("下载目录更新成功");
+                            ShowLoadingWindow();
                             long downloadSize = sizeHandle.Result;
                             if (downloadSize > 0)
                             {
@@ -83,13 +85,13 @@ public class HotUpdateSystem : MonoBehaviour
                                     //分发下载进度
                                     float percentage = downloadDependenciesHandle.PercentComplete;
                                     onPercentageForEachFile?.Invoke(percentage);
+                                    UpdateLoadingWindowProgress(downloadSize * percentage, downloadSize);
                                     JKLog.Log($"下载进度：{percentage}");
                                     yield return CoroutineTool.WaitForFrames();
                                 }
                                 if (downloadDependenciesHandle.Status == AsyncOperationStatus.Succeeded)
                                 {
                                     JKLog.Error($"下载进度完成:{locator.LocatorId}");
-                                    break;
                                 }
 
                                 Addressables.Release(downloadDependenciesHandle);
@@ -98,6 +100,7 @@ public class HotUpdateSystem : MonoBehaviour
 
                         Addressables.Release(sizeHandle);
                     }
+                    CloseLoadingWindow();
                 }
             } 
             else JKLog.Log("无需更新");
@@ -136,5 +139,23 @@ public class HotUpdateSystem : MonoBehaviour
     {
         Addressables.DownloadDependenciesAsync(versionInfoAddressableKey, true).WaitForCompletion();
         return Addressables.LoadAssetAsync<TextAsset>(versionInfoAddressableKey).WaitForCompletion();
+    }
+
+    private UI_LoadingWindow loadingWindow;
+    private void ShowLoadingWindow()
+    {
+        loadingWindow = UISystem.Show<UI_LoadingWindow>();
+        loadingWindow.Set("Loading....");
+    }
+
+    private void CloseLoadingWindow()
+    {
+        UISystem.Close<UI_LoadingWindow>();
+        loadingWindow = null;
+    }
+
+    private void UpdateLoadingWindowProgress(float current, float max)
+    {
+        loadingWindow.UpdateDownloadProgress(current, max);
     }
 }
