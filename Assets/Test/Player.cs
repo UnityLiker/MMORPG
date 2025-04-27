@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : NetworkBehaviour
 {
+    public float moveSpeed;
     // Update is called once per frame
     void Update()
     {  
@@ -29,7 +30,7 @@ public class Player : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void HandleMovementServerRpc(Vector3 inputDir)
     {
-        transform.Translate(Time.deltaTime * 10 * inputDir);
+        transform.Translate(Time.deltaTime * moveSpeed * inputDir);
     }
 
     [ClientRpc]
