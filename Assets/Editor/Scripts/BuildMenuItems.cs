@@ -19,7 +19,7 @@ public static class BuildMenuItems
     public const string clientFolderPath = "Client";
 
     public static object BuildFilterAssemblies { get; private set; }
-
+     
     [MenuItem("Project/Build/All")]
     public static void All()
     {
@@ -31,6 +31,7 @@ public static class BuildMenuItems
     public static void Server() 
     {
         Debug.Log("开始构建服务端");
+        //JKFrameSetting.AddScriptCompilationSymbol(editorServerTestSymbolString);
         HybridCLR.Editor.SettingsUtil.Enable = false;
         List<string> sceneList = new List<string>(EditorSceneManager.sceneCountInBuildSettings);
         for (int i = 0; i < EditorSceneManager.sceneCountInBuildSettings; i++)
@@ -61,7 +62,7 @@ public static class BuildMenuItems
     public static void NewClient()
     {
         Debug.Log("开始构建客户端");
-
+        //JKFrameSetting.RemoveScriptCompilationSymbol(editorServerTestSymbolString);
         // HybirdCLR构建准备
         CompileDllCommand.CompileDllActiveBuildTarget();
         PrebuildCommand.GenerateAll();

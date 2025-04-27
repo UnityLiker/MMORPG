@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/ServerStartScene.unity
     guid: 5ba3810c01465c64bb08f499f8933293
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
+    path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 4b0b4fbe21f2a0442a9ea01085f95b03, type: 2}

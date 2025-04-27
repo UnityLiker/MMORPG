@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using JKFrame;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 public class ClientLaunch : MonoBehaviour
 {
@@ -10,14 +8,16 @@ public class ClientLaunch : MonoBehaviour
     {
         GetComponent<HotUpdateSystem>().StartHotUpdate(null, (bool success) => {
             if (success) {
-                Addressables.InstantiateAsync("GameObject").WaitForCompletion();
+                OnHotUpdateSucceed();
             }
         });
     }
 
     // Update is called once per frame
-    void Update()
+    void OnHotUpdateSucceed()
     {
-        
+        NetManager.Instance.InitClient();
+        SceneSystem.LoadScene("Game");
+        JKLog.Succeed("InitClient");
     }
 }
